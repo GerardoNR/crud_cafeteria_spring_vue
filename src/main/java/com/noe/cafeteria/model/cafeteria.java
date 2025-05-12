@@ -1,11 +1,24 @@
 package com.noe.cafeteria.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
 
 @Entity
- public class cafeteria {
-
+public class cafeteria {
+    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    
+    private String nombre;
+    private String apellido;
+    private String telefono;
+    private String email;
+    private String imagenURL;
+
     public Long getId() {
         return id;
     }
@@ -42,10 +55,6 @@ import jakarta.persistence.Entity;
     public void setImagenURL(String imagenURL) {
         this.imagenURL = imagenURL;
     }
-    private String nombre;
-    private String apellido;
-    private String telefono;
-    private String email;
-    private String imagenURL;
+
 
 }
