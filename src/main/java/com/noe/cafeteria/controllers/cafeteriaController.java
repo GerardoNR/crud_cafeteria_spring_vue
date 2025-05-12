@@ -4,6 +4,7 @@ import java.util.List;
 import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ public class cafeteriaController {
     private cafeteriaRepository cafeteriaRepository;
 
 // metodo get para mostrar clientes
-    @GetMapping("/mostar-cafeteria")
+    @GetMapping("/mostrar-cafeteria")
     public List<cafeteria> mostrarCafeteria () {
         return cafeteriaRepository.findAll();
     }
@@ -44,6 +45,12 @@ return cafeteriaRepository.findById(id).map(clienteExiste ->{
     cafeteria actualizado = cafeteriaRepository.save(clienteExiste);
     return ResponseEntity.ok(actualizado);
 }).orElse(ResponseEntity.notFound().build());
+}
+
+//metodo para eliminar un cliente de la BD
+@DeleteMapping("/eliminar-cliente/{id}")
+public void eliminarcliente(@PathVariable Long id){
+    cafeteriaRepository.deleteById(id);
 }
 }
 
