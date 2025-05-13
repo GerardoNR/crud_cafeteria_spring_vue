@@ -1,7 +1,6 @@
 package com.noe.cafeteria.controllers;
 import java.util.List;
 
-import org.apache.catalina.connector.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.noe.cafeteria.model.cafeteria;
 import com.noe.cafeteria.repository.cafeteriaRepository;
 
-import lombok.experimental.PackagePrivate;
 
 @RestController
 @RequestMapping ("/cafeteria")
