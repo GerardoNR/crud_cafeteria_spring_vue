@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.noe.cafeteria.model.cafeteria;
 import com.noe.cafeteria.repository.cafeteriaRepository;
 
+import lombok.experimental.PackagePrivate;
+
 @RestController
 @RequestMapping ("/cafeteria")
 public class cafeteriaController {
@@ -28,6 +30,16 @@ public class cafeteriaController {
     public List<cafeteria> mostrarCafeteria () {
         return cafeteriaRepository.findAll();
     }
+
+
+    @GetMapping("/mostrar-cafeteria/{id}")
+    public ResponseEntity <cafeteria> mostraruncliente(@PathVariable Long id)  {
+        return cafeteriaRepository.findById(id)
+        .map(cliente -> ResponseEntity.ok(cliente))
+        .orElse(ResponseEntity.notFound().build());
+    }
+
+
 //metodo para insertar un cliente a la BD
 @PostMapping("/insertar-cliente")
 public cafeteria insertarCafeteria(@RequestBody cafeteria cliente) {
