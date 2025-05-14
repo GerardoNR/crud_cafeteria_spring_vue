@@ -95,7 +95,8 @@ onMounted(cargarclientes);
       <td>
         
         <button class="btn btn-danger mx-2"><i class="bi bi-trash2-fill"></i></button>
-        <button class="btn btn-warning"><i class="bi bi-pencil-fill"></i></button>
+        
+
       </td>
     </tr>
   </tbody>
